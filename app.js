@@ -8,12 +8,12 @@ formEl.addEventListener("submit", e => {
 
     e.preventDefault()
 
-    fetch(`http://www.omdbapi.com/?s="${searchbar.value}"&apikey=f480dc7`)
+    fetch(`http://www.omdbapi.com/?s="${searchbar.value}"&apikey={apikey}`)
         .then(res => res.json())
         .then(films => {
             resultsEl.innerHTML = ""
             films.Search.forEach(film => {
-                fetch(`http://www.omdbapi.com/?i=${film.imdbID}&apikey=f480dc7`)
+                fetch(`http://www.omdbapi.com/?i=${film.imdbID}&apikey={apikey}`)
                     .then(res => res.json())
                     .then(film => {
 
@@ -96,7 +96,7 @@ function addToLocal(id) {
 }
 
 function readMore(id) {
-    fetch(`http://www.omdbapi.com/?i=${id}&plot=full&apikey=f480dc7`)
+    fetch(`http://www.omdbapi.com/?i=${id}&plot=full&apikey={apikey}`)
         .then(res => res.json())
         .then(film => {
             document.getElementById(`${film.imdbID}-plot`).innerHTML = `
@@ -109,7 +109,7 @@ function readMore(id) {
 }
 
 function readLess(id) {
-    fetch(`http://www.omdbapi.com/?i=${id}&apikey=f480dc7`)
+    fetch(`http://www.omdbapi.com/?i=${id}&apikey={apikey}`)
         .then(res => res.json())
         .then(film => {
             document.getElementById(`${film.imdbID}-plot`).innerHTML = `
@@ -120,6 +120,3 @@ function readLess(id) {
                 `
         })
 }
-
-// see if you can add the 'added' instead of 'watchlist' on items if they are already on your watchlist
-// or just don't render films if they are already part of your watchlist if that is easier
