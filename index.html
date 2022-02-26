@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watchlist App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main>
+        <div class="top-container">
+            <h1>Find Your Film</h1>
+            <a href="watchlist.html" class="top-link">My Watchlist</a>
+        </div>
+        <form id="formEl">
+            <img src="./images/magnifying-glass-solid.svg" alt="#" id="magnifying-glass-icon">
+            <input type="text" id="searchbar" placeholder="Enter a film name here">
+            <button type="submit" id="submit-btn">Search</button>
+        </form>
+        <div id="results" class="results">
+            <div class="default-wrapper">
+                <p class="default-text">Start exploring</p>
+                <img src="images/film-solid.svg" alt="#" id="film-icon">
+            </div>
+        </div>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>
