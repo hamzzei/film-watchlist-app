@@ -18,18 +18,10 @@ function renderList() {
 
     localArr.forEach(item => {
         watchlistEl.innerHTML = ""
-        fetch(`http://www.omdbapi.com/?i=${item}&apikey=f480dc7`)
+        fetch(`http://www.omdbapi.com/?i=${item}&apikey={apikey}`)
             .then(res => res.json())
             .then(film => { 
                 watchlistEl.innerHTML += 
-            //     `
-            // <div class="result">
-            //     <p>${film.Title}</p>
-            //     <a class="add-remove-btn" onclick="removeFromLocal('${item}')">
-            //         Remove
-            //     </a>
-            // </div>
-            // `
             `
             <div class="result">
                 <div class="result-text-wrapper">
@@ -72,7 +64,7 @@ function removeFromLocal(id) {
 }
 
 function readMore(id) {
-    fetch(`http://www.omdbapi.com/?i=${id}&plot=full&apikey=f480dc7`)
+    fetch(`http://www.omdbapi.com/?i=${id}&plot=full&apikey={apikey}`)
         .then(res => res.json())
         .then(film => {
             console.log(film.Plot)
@@ -86,7 +78,7 @@ function readMore(id) {
 }
 
 function readLess(id) {
-    fetch(`http://www.omdbapi.com/?i=${id}&apikey=f480dc7`)
+    fetch(`http://www.omdbapi.com/?i=${id}&apikey={apikey}`)
         .then(res => res.json())
         .then(film => {
             console.log(film.Plot)
